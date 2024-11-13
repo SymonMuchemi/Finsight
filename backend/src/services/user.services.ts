@@ -43,3 +43,21 @@ export const createUser = async (newUser: CreateUser): Promise<ResponseBody> => 
         }
     }
 }
+
+export const getAllUsers = async () => {
+    try {
+        const allUsers = await prisma.user.findMany();
+
+        return {
+            code: 200,
+            message: 'Users details fetched!',
+            details: allUsers
+        }
+    } catch (error: any) {
+        return {
+            code: 500,
+            message: 'user.service: Error getching user details',
+            details: error.toString()
+        }
+    }
+}

@@ -1,9 +1,14 @@
 import { Router } from "express";
 import { asyncHandler } from "../utils";
-import { createUserController } from "../controllers/user.controllers";
+import { userSchema } from "../middleware/validators/user.validator";
+import {
+    createUserController,
+    getAllUsersController
+} from "../controllers/user.controllers";
 
 const userRoute = Router();
 
-userRoute.post('/', asyncHandler(createUserController));
+userRoute.post('/', userSchema, asyncHandler(createUserController));
+userRoute.get('/', asyncHandler(getAllUsersController));
 
 export default userRoute
