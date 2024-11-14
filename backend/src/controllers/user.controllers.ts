@@ -29,6 +29,15 @@ export const createUserController = async (req: Request, res: Response): Promise
     }
 }
 
+/**
+ * Controller to handle the request for fetching all users.
+ * 
+ * @param req - The request object.
+ * @param res - The response object.
+ * @returns A promise that resolves to a response object containing the status code, message, and user details.
+ * 
+ * @throws Will return a 500 status code and an error message if there is an issue fetching user details.
+ */
 export const getAllUsersController = async (req: Request, res: Response): Promise<Response> => {
     try {
         const { code, message, details } = await getAllUsers();
