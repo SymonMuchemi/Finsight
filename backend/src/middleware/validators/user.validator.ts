@@ -18,7 +18,7 @@ export const userSchema = checkSchema({
             errorMessage: 'password must be a string'
         },
         isLength: {
-            options: {min: 8},
+            options: { min: 8 },
             errorMessage: 'password must at 8 characters long'
         },
         escape: true

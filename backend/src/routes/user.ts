@@ -4,7 +4,7 @@ import { userSchema } from "../middleware/validators/user.validator";
 import {
     createUserController,
     getAllUsersController
-} from "../controllers/user.controllers";
+} from "../controllers/user.controller";
 
 const userRoute = Router();
 
