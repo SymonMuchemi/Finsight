@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./styles.css";
+import Login from "./components/Login";
+import Registration from "./components/Registration";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="bg-yellow-100 min-h-screen">
+      <nav className="flex bg-blue-400 justify-between items-center p-4">
+        <h1 className="text-white text-xl font-bold">Finsight</h1>
+        <ul className="flex gap-4">
+          <li>
+            <a href="#" className="text-white hover:underline">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-white hover:underline">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#" className="text-white hover:underline">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div className="flex gap-4">
+          <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            Sign In
+          </button>
+          <button className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400">
+            Register
+          </button>
+        </div>
+      </nav>
+      {/* <Login /> */}
+      <Registration />
+    </div>
+  );
 }
 
-export default App
+export default App;
