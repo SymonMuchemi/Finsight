@@ -18,7 +18,7 @@ import { ResponseBody } from "../types";
  */
 export const createUser = async (newUser: CreateUser): Promise<ResponseBody> => {
     try {
-        const { email, password } = newUser;
+        const { name, email, password } = newUser;
 
         const existingUser = await prisma.user.findUnique({ where: { email } });
 
@@ -32,7 +32,7 @@ export const createUser = async (newUser: CreateUser): Promise<ResponseBody> => 
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const createdUser = await prisma.user.create({ data: { email, password: hashedPassword } })
+        const createdUser = await prisma.user.create({ data: { name, email, password: hashedPassword } })
 
         if (!createdUser) {
             return {
