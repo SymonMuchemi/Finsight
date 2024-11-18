@@ -1,9 +1,11 @@
 import express, { Application, Request, Response } from "express";
 import cookieParser from "cookie-parser";
 import { PrismaClient } from "@prisma/client";
-import userRoute from "./routes/user";
 import logger from 'morgan';
 import { config } from "dotenv";
+
+import userRoute from "./routes/user";
+import authRouter from "./routes/auth";
 
 config();
 
@@ -17,7 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(logger('dev'))
 
-app.use('/users', userRoute)
+app.use('/users', userRoute);
+app.use('/auth', authRouter);
 
 app.get("/", (req: Request, res: Response) => {
     res.send("Hello World!");
