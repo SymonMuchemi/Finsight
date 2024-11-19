@@ -1,7 +1,7 @@
 import { checkSchema } from 'express-validator';
 
 export const userSchema = checkSchema({
-    name: {
+    username: {
         isString: {
             errorMessage: 'Name must be a string!'
         },
