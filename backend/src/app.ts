@@ -1,7 +1,8 @@
 import express, { Application, Request, Response } from "express";
 import cookieParser from "cookie-parser";
-import { PrismaClient } from "@prisma/client";
 import logger from 'morgan';
+import cors from 'cors';
+import { PrismaClient } from "@prisma/client";
 import { config } from "dotenv";
 
 import userRoute from "./routes/user";
@@ -17,7 +18,8 @@ export const prisma = new PrismaClient();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(logger('dev'))
+app.use(logger('dev'));
+app.use(cors());
 
 app.use('/users', userRoute);
 app.use('/auth', authRouter);
