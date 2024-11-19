@@ -1,14 +1,15 @@
 import "./styles.css";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Login, Registration } from "./components/";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Login, Registration, Home } from "./components/";
 
 function App() {
   return (
     <Router>
-      <Switch>
+      <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
-      </Switch>
+      </Routes>
     </Router>
   );
 }
